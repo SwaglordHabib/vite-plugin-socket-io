@@ -5,7 +5,7 @@ Plugin to add [socket.io](https://socket.io/) to a Vite server
 
 ## Installation
 ```
-npm i -D vite-plugin-socket.io
+npm i @swaglordhabib/vite-plugin-socket-io
 ```
 
 ## Basic Usage
@@ -47,5 +47,16 @@ const socketEvents = (io, socket) => {
 
 export default defineConfig({
   plugins: [vitePluginSocketIO({socketEvents})]
+})
+
+// or with the new server options...
+
+export default defineConfig({
+  plugins: [vitePluginSocketIO({socketEvents}, {
+    cors: {
+      origin: '*',
+      methods: ['GET', 'POST']
+    }
+  })]
 })
 ```
