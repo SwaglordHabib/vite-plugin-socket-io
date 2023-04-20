@@ -25,6 +25,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "bugs": {
     "url": "https://github.com/SwaglordHabib/vite-plugin-socket-io.git/issues"
   },
