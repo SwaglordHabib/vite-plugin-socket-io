@@ -3,7 +3,7 @@ import { Server } from 'socket.io';
 import serverEvents from './serverEvents/index.js';
 import socketEvents from './socketEvents/index.js';
 
-export default (options = {}) => ({
+export default (options = {}, serverOptions = {}) => ({
   name: 'socket.io',
   configureServer(server) {
     // initiate default options
@@ -13,7 +13,7 @@ export default (options = {}) => ({
     options = Object.assign(defaults, options);
 
     // create io server
-    const io = new Server(server.httpServer);
+    const io = new Server(server.httpServer, serverOptions);
 
     // pass io server to serverEvents
     options.serverEvents(io, options.socketEvents);
